@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JMideal Multi Split System - The Right Air Solution for Multiple Spaces</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.544.0/dist/umd/lucide.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary-color: #0066cc;
+            --secondary-color: #ff3300;
+            --accent-color: #ffcc00;
+            --green-color: #00cc66;
+            --dark-color: #1a1a1a;
+            --light-color: #f5f5f5;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .west-african-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230066cc' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+        
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #0055aa;
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #cc2900;
+        }
+        
+        .btn-accent {
+            background-color: var(--accent-color);
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn-accent:hover {
+            background-color: #e6b800;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .active-nav::after {
+            width: 100%;
+        }
+        
+        .feature-icon {
+            background-color: rgba(0, 102, 204, 0.1);
+            color: var(--primary-color);
+            padding: 1rem;
+            border-radius: 50%;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1);
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .calculator-container {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .calculator-input {
+            border: 1px solid #e2e8f0;
+            border-radius: 0.375rem;
+            padding: 0.75rem;
+            width: 100%;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .calculator-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.2);
+        }
+        
+        .result-card {
+            background-color: rgba(0, 102, 204, 0.05);
+            border-left: 4px solid var(--primary-color);
+            border-radius: 0.375rem;
+            padding: 1rem;
+        }
+        
+        .language-switcher {
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: white;
+            border-radius: 0.375rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            padding: 0.5rem 0;
+            min-width: 100px;
+            z-index: 10;
+            display: none;
+        }
+        
+        .language-switcher:hover .language-dropdown {
+            display: block;
+        }
+        
+        .language-option {
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s ease;
+        }
+        
+        .language-option:hover {
+            background-color: #f3f4f6;
+        }
+        
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100vh;
+            background-color: white;
+            z-index: 50;
+            transition: right 0.3s ease;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mobile-menu.active {
+            right: 0;
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 40;
+            display: none;
+        }
+        
+        .overlay.active {
+            display: block;
+        }
+        
+        .model-container {
+            width: 100%;
+            height: 400px;
+            background-color: #f3f4f6;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        
+        @media (max-width: 768px) {
+            .model-container {
+                height: 300px;
+            }
+        }
+        
+        .animated-bg {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .animated-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%) rotate(45deg);
+            }
+            100% {
+                transform: translateX(100%) rotate(45deg);
+            }
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+        
+        .flag-icon {
+            width: 24px;
+            height: 16px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 0.5rem;
+        }
+        
+        .flag-icon-gb {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30'%3E%3CclipPath id='a'%3E%3Cpath fill-opacity='.7' d='M-8.8 30h77.6V0H-8.8v30z'/%3E%3C/clipPath%3E%3CclipPath id='b'%3E%3Cpath fill='%23fff' d='M30 15h30v15zv15H0zH0V0zV0h30z'/%3E%3C/clipPath%3E%3Cpath d='M0 0v30h60V0H0z' fill='%23012169'/%3E%3Cpath d='M0 0l60 30m0-30L0 30' stroke='%23fff' stroke-width='6'/%3E%3Cpath d='M0 0l60 30m0-30L0 30' clip-path='url(%23a)' stroke='%23C8102E' stroke-width='4'/%3E%3Cpath d='M30 0v30M0 15h60' stroke='%23fff' stroke-width='10'/%3E%3Cpath d='M30 0v30M0 15h60' stroke='%23C8102E' stroke-width='6'/%3E%3C/svg%3E");
+        }
+        
+        .flag-icon-fr {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30'%3E%3CclipPath id='a'%3E%3Cpath fill-opacity='.7' d='M-8.8 30h77.6V0H-8.8v30z'/%3E%3C/clipPath%3E%3CclipPath id='b'%3E%3Cpath fill='%23fff' d='M30 15h30v15zv15H0zH0V0zV0h30z'/%3E%3C/clipPath%3E%3Cpath d='M0 0v30h60V0H0z' fill='%23fff'/%3E%3Cpath d='M0 0v30h20V0H0z' fill='%2300267f'/%3E%3Cpath d='M40 0v30h20V0H40z' fill='%23f31830'/%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md fixed w-full top-0 z-40">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center">
+                        <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center mr-2">
+                            <span class="text-white font-bold text-xl">JM</span>
+                        </div>
+                        <span class="text-xl font-bold text-gray-800">JMideal</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link active-nav text-gray-800 hover:text-blue-600 font-medium" data-i18n="nav-home">Home</a>
+                    <a href="#about" class="nav-link text-gray-800 hover:text-blue-600 font-medium" data-i18n="nav-about">About Us</a>
+                    <a href="#products" class="nav-link text-gray-800 hover:text-blue-600 font-medium" data-i18n="nav-products">Products</a>
+                    <a href="#benefits" class="nav-link text-gray-800 hover:text-blue-600 font-medium" data-i18n="nav-benefits">Benefits</a>
+                    <a href="#calculator" class="nav-link text-gray-800 hover:text-blue-600 font-medium" data-i18n="nav-calculator">Savings Calculator</a>
+                    <a href="#cases" class="nav-link text-gray-800 hover:text-blue-600 font-medium" data-i18n="nav-cases">Projects</a>
+                    <a href="#contact" class="nav-link text-gray-800 hover:text-blue-600 font-medium" data-i18n="nav-contact">Contact</a>
+                    
+                    <!-- Language Switcher -->
+                    <div class="language-switcher">
+                        <div class="flex items-center text-gray-800 hover:text-blue-600 font-medium">
+                            <span class="flag-icon flag-icon-gb"></span>
+                            <span id="current-language">English</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+                        </div>
+                        <div class="language-dropdown">
+                            <div class="language-option" data-lang="en">
+                                <span class="flag-icon flag-icon-gb"></span>
+                                <span>English</span>
+                            </div>
+                            <div class="language-option" data-lang="fr">
+                                <span class="flag-icon flag-icon-fr"></span>
+                                <span>Français</span>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-800 hover:text-blue-600 focus:outline-none">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="p-4 border-b">
+            <div class="flex justify-between items-center">
+                <a href="#" class="flex items-center">
+                    <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center mr-2">
+                        <span class="text-white font-bold text-xl">JM</span>
+                    </div>
+                    <span class="text-xl font-bold text-gray-800">JMideal</span>
+                </a>
+                <button id="close-mobile-menu" class="text-gray-800 hover:text-blue-600 focus:outline-none">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+        <nav class="p-4">
+            <ul class="space-y-4">
+                <li>
+                    <a href="#home" class="mobile-nav-link block text-gray-800 hover:text-blue-600 font-medium py-2" data-i18n="nav-home">Home</a>
+                </li>
+                <li>
+                    <a href="#about" class="mobile-nav-link block text-gray-800 hover:text-blue-600 font-medium py-2" data-i18n="nav-about">About Us</a>
+                </li>
+                <li>
+                    <a href="#products" class="mobile-nav-link block text-gray-800 hover:text-blue-600 font-medium py-2" data-i18n="nav-products">Products</a>
+                </li>
+                <li>
+                    <a href="#benefits" class="mobile-nav-link block text-gray-800 hover:text-blue-600 font-medium py-2" data-i18n="nav-benefits">Benefits</a>
+                </li>
+                <li>
+                    <a href="#calculator" class="mobile-nav-link block text-gray-800 hover:text-blue-600 font-medium py-2" data-i18n="nav-calculator">Savings Calculator</a>
+                </li>
+                <li>
+                    <a href="#cases" class="mobile-nav-link block text-gray-800 hover:text-blue-600 font-medium py-2" data-i18n="nav-cases">Projects</a>
+                </li>
+                <li>
+                    <a href="#contact" class="mobile-nav-link block text-gray-800 hover:text-blue-600 font-medium py-2" data-i18n="nav-contact">Contact</a>
+                </li>
+                <li class="border-t pt-4">
+                    <div class="flex items-center space-x-4">
+                        <button class="language-option flex items-center text-gray-800 hover:text-blue-600 font-medium" data-lang="en">
+                            <span class="flag-icon flag-icon-gb"></span>
+                            <span>English</span>
+                        </button>
+                        <button class="language-option flex items-center text-gray-800 hover:text-blue-600 font-medium" data-lang="fr">
+                            <span class="flag-icon flag-icon-fr"></span>
+                            <span>Français</span>
+                        </button>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="overlay"></div>
+    
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-16 md:pt-32 md:pb-24 hero-gradient west-african-pattern">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6" data-i18n="hero-title">JMideal Multi Split System</h1>
+                    <p class="text-xl md:text-2xl text-white mb-8" data-i18n="hero-subtitle">The Right Air Solution for Multiple Spaces</p>
+                    <p class="text-white mb-8 opacity-90" data-i18n="hero-description">Experience the perfect blend of comfort, efficiency, and style with our innovative multi-split air conditioning systems, designed specifically for West African homes and businesses.</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#products" class="btn-primary text-white font-medium py-3 px-6 rounded-lg text-center">
+                            <span data-i18n="hero-btn-products">Explore Products</span>
+                        </a>
+                        <a href="#contact" class="btn-accent text-gray-800 font-medium py-3 px-6 rounded-lg text-center">
+                            <span data-i18n="hero-btn-contact">Contact Us</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/24ff414d0aab48c5b7c5b2d8f313c67d~tplv-a9rns2rl98-image.image?rcl=2025122512065599C8E7E3408B5B67EE19&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1769227774&x-signature=0LseV5Izfx57AUAmg0ajDh%2FdsLE%3D" alt="JMideal Multi Split System" class="rounded-lg shadow-2xl w-full">
+                </div>
+            </div>
+            <div class="scroll-indicator text-white">
+                <i data-lucide="chevron-down" class="w-8 h-8"></i>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4" data-i18n="about-title">About JMideal</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/3174396ed19e45078bb06c5fb4b302dc~tplv-a9rns2rl98-image.image?rcl=2025122512065599C8E7E3408B5B67EE19&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1769227788&x-signature=8kODE6MSs%2BahMU%2B4LFpxdYTCHYs%3D" alt="About JMideal" class="rounded-lg shadow-lg w-full">
+                </div>
+                <div class="md:w-1/2 md:pl-12">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4" data-i18n="about-subtitle">Your Trusted OEM Partner for Midea Multi Split Systems in West Africa</h3>
+                    <p class="text-gray-700 mb-6" data-i18n="about-description-1">JMideal is proud to be the official OEM partner for Midea, one of the world's leading air conditioning manufacturers. We bring cutting-edge technology and energy-efficient solutions to homes and businesses across Ghana, Nigeria, and the entire West African region.</p>
+                    <p class="text-gray-700 mb-6" data-i18n="about-description-2">Our mission is to provide superior comfort while reducing energy consumption and environmental impact. With our deep understanding of West African climate conditions and building requirements, we offer tailored solutions that meet the unique needs of our customers.</p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                <i data-lucide="check" class="w-6 h-6 text-blue-600"></i>
+                            </div>
+                            <span class="text-gray-800 font-medium" data-i18n="about-feature-1">Energy Efficient</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                <i data-lucide="check" class="w-6 h-6 text-blue-600"></i>
+                            </div>
+                            <span class="text-gray-800 font-medium" data-i18n="about-feature-2">Locally Adapted</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                <i data-lucide="check" class="w-6 h-6 text-blue-600"></i>
+                            </div>
+                            <span class="text-gray-800 font-medium" data-i18n="about-feature-3">Durable</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                <i data-lucide="check" class="w-6 h-6 text-blue-600"></i>
+                            </div>
+                            <span class="text-gray-800 font-medium" data-i18n="about-feature-4">Professional Support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Products Section -->
+    <section id="products" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4" data-i18n="products-title">Our Multi Split Systems</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto" data-i18n="products-subtitle">Discover our range of innovative multi-split air conditioning systems, designed to provide optimal comfort and efficiency for any space.</p>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product 1 -->
+                <div class="card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/f32117a60e894e709cf18222b3609e80~tplv-a9rns2rl98-image.image?rcl=2025122512065599C8E7E3408B5B67EE19&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1769227806&x-signature=xYlyvL%2FfgeQghbULfRXg0SbyPQs%3D" alt="Inverter Quattro™ Multi Split System" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                            <span data-i18n="products-best-seller">Best Seller</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2" data-i18n="products-product-1-title">Inverter Quattro™ Multi Split System</h3>
+                        <p class="text-gray-600 mb-4" data-i18n="products-product-1-description">Our flagship model with advanced Inverter Quattro™ technology, offering up to 40% power savings and exceptional comfort.</p>
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400">
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            </div>
+                            <span class="text-gray-600 text-sm ml-2" data-i18n="products-product-1-rating">(120 reviews)</span>
+                        </div>
+                        <div class="border-t pt-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-blue-600 font-bold text-lg" data-i18n="products-product-1-price">From ₦1,200,000</span>
+                                <a href="#contact" class="btn-primary text-white text-sm font-medium py-2 px-4 rounded-lg">
+                                    <span data-i18n="products-product-1-btn">Get Quote</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative">
+                        <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/bd81082afd634a06b9d2d24b5b9f1e01.png~tplv-a9rns2rl98-24:720:720.png?rcl=2025122512065599C8E7E3408B5B67EE19&rk3s=8e244e95&rrcfp=8a172a1a&x-expires=1767240415&x-signature=ZlLidzK%2BLMYSsKpVbdM092jTKgU%3D" alt="Compact Multi Split System" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2" data-i18n="products-product-2-title">Compact Multi Split System</h3>
+                        <p class="text-gray-600 mb-4" data-i18n="products-product-2-description">Perfect for smaller spaces, our compact model delivers powerful performance in a sleek, space-saving design.</p>
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400">
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star-half" class="w-5 h-5 fill-current"></i>
+                            </div>
+                            <span class="text-gray-600 text-sm ml-2" data-i18n="products-product-2-rating">(85 reviews)</span>
+                        </div>
+                        <div class="border-t pt-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-blue-600 font-bold text-lg" data-i18n="products-product-2-price">From ₦850,000</span>
+                                <a href="#contact" class="btn-primary text-white text-sm font-medium py-2 px-4 rounded-lg">
+                                    <span data-i18n="products-product-2-btn">Get Quote</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative">
+                        <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/e0a8ab364ca14abbb43a42ab864cbe43.png~tplv-a9rns2rl98-24:720:720.png?rcl=2025122512065599C8E7E3408B5B67EE19&rk3s=8e244e95&rrcfp=8a172a1a&x-expires=1767240415&x-signature=c%2BbYfXMzyfXhgIEa85eBSXwGotE%3D" alt="High-Capacity Multi Split System" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                            <span data-i18n="products-new">New</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2" data-i18n="products-product-3-title">High-Capacity Multi Split System</h3>
+                        <p class="text-gray-600 mb-4" data-i18n="products-product-3-description">Designed for larger commercial spaces, with up to 150% indoor-outdoor capacity ratio and exceptional energy efficiency.</p>
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400">
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            </div>
+                            <span class="text-gray-600 text-sm ml-2" data-i18n="products-product-3-rating">(42 reviews)</span>
+                        </div>
+                        <div class="border-t pt-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-blue-600 font-bold text-lg" data-i18n="products-product-3-price">From ₦1,800,000</span>
+                                <a href="#contact" class="btn-primary text-white text-sm font-medium py-2 px-4 rounded-lg">
+                                    <span data-i18n="products-product-3-btn">Get Quote</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#contact" class="btn-secondary text-white font-medium py-3 px-8 rounded-lg inline-block">
+                    <span data-i18n="products-see-all">See All Products</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4" data-i18n="benefits-title">Why Choose JMideal Multi Split Systems</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto" data-i18n="benefits-subtitle">Our systems offer numerous advantages over traditional single-split units, providing superior comfort and efficiency for your home or business.</p>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Benefit 1 -->
+                <div class="feature-card bg-white p-6 rounded-lg shadow-lg">
+                    <div class="feature-icon mb-6">
+                        <i data-lucide="zap" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3" data-i18n="benefits-benefit-1-title">55% Electricity Cost Reduction</h3>
+                    <p class="text-gray-600" data-i18n="benefits-benefit-1-description">Our advanced Inverter Quattro™ technology can reduce energy consumption by up to 55%, significantly lowering your electricity bills.</p>
+                </div>
+                
+                <!-- Benefit 2 -->
+                <div class="feature-card bg-white p-6 rounded-lg shadow-lg">
+                    <div class="feature-icon mb-6">
+                        <i data-lucide="layers" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3" data-i18n="benefits-benefit-2-title">Up to 150% High Combination Rate</h3>
+                    <p class="text-gray-600" data-i18n="benefits-benefit-2-description">One outdoor unit can connect to multiple indoor units, providing flexible installation options and optimal capacity utilization.</p>
+                </div>
+                
+                <!-- Benefit 3 -->
+                <div class="feature-card bg-white p-6 rounded-lg shadow-lg">
+                    <div class="feature-icon mb-6">
+                        <i data-lucide="thermometer" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3" data-i18n="benefits-benefit-3-title">Wide Operation Range</h3>
+                    <p class="text-gray-600" data-i18n="benefits-benefit-3-description">Our systems operate efficiently even in extreme temperatures, ensuring comfort all year round in West Africa's challenging climate.</p>
+                </div>
+                
+                <!-- Benefit 4 -->
+                <div class="feature-card bg-white p-6 rounded-lg shadow-lg">
+                    <div class="feature-icon mb-6">
+                        <i data-lucide="activity" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3" data-i18n="benefits-benefit-4-title">Active Power Factor Correction</h3>
+                    <p class="text-gray-600" data-i18n="benefits-benefit-4-description">Our systems utilize up to 88-99% of the input power supply effectively, maximizing energy efficiency and reducing waste.</p>
+                </div>
+                
+                <!-- Benefit 5 -->
+                <div class="feature-card bg-white p-6 rounded-lg shadow-lg">
+                    <div class="feature-icon mb-6">
+                        <i data-lucide="dollar-sign" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3" data-i18n="benefits-benefit-5-title">Cost-Effective Installation</h3>
+                    <p class="text-gray-600" data-i18n="benefits-benefit-5-description">Fewer outdoor units mean reduced installation costs, less space required, and a cleaner, more aesthetically pleasing appearance.</p>
+                </div>
+                
+                <!-- Benefit 6 -->
+                <div class="feature-card bg-white p-6 rounded-lg shadow-lg">
+                    <div class="feature-icon mb-6">
+                        <i data-lucide="sliders" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3" data-i18n="benefits-benefit-6-title">Individual Temperature Control</h3>
+                    <p class="text-gray-600" data-i18n="benefits-benefit-6-description">Each indoor unit can be controlled independently, allowing personalized comfort settings for different rooms or zones.</p>
+                </div>
+            </div>
+            
+            <div class="mt-16 bg-gray-50 rounded-lg p-8 shadow-lg">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-8 md:mb-0">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4" data-i18n="benefits-comparison-title">Multi Split vs. Single Split: The Clear Choice</h3>
+                        <p class="text-gray-600 mb-6" data-i18n="benefits-comparison-description">When comparing multi-split systems to traditional single-split units, the advantages are clear. Our multi-split systems offer superior efficiency, flexibility, and cost savings.</p>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i data-lucide="check" class="w-5 h-5 text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800" data-i18n="benefits-comparison-point-1-title">40% Energy Savings</h4>
+                                    <p class="text-gray-600" data-i18n="benefits-comparison-point-1-description">Significant reduction in electricity consumption compared to multiple single-split units.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i data-lucide="check" class="w-5 h-5 text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800" data-i18n="benefits-comparison-point-2-title">Reduced Installation Costs</h4>
+                                    <p class="text-gray-600" data-i18n="benefits-comparison-point-2-description">Fewer outdoor units mean lower installation costs and less space required.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i data-lucide="check" class="w-5 h-5 text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800" data-i18n="benefits-comparison-point-3-title">Enhanced Flexibility</h4>
+                                    <p class="text-gray-600" data-i18n="benefits-comparison-point-3-description">Mix and match different indoor unit types to suit various room requirements and aesthetics.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 md:pl-12">
+                        <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/73cd6efaf978453da677fd1723cf6213.png~tplv-a9rns2rl98-24:720:720.png?rcl=2025122512065599C8E7E3408B5B67EE19&rk3s=8e244e95&rrcfp=8a172a1a&x-expires=1767240415&x-signature=QLJPiT7tduF1f%2BNarrvlcMShoy0%3D" alt="Energy Savings Comparison" class="rounded-lg shadow-lg w-full">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Savings Calculator Section -->
+    <section id="calculator" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4" data-i18n="calculator-title">Energy Savings Calculator</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto" data-i18n="calculator-subtitle">Find out how much you could save by switching to a JMideal Multi Split System. Enter your details below to calculate your potential savings.</p>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="calculator-container p-8 max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-6" data-i18n="calculator-form-title">Your Information</h3>
+                        <form id="savings-calculator">
+                            <div class="mb-6">
+                                <label for="rooms" class="block text-gray-700 font-medium mb-2" data-i18n="calculator-form-rooms">Number of Rooms</label>
+                                <input type="number" id="rooms" class="calculator-input" min="1" max="10" value="3" required>
+                            </div>
+                            <div class="mb-6">
+                                <label for="hours" class="block text-gray-700 font-medium mb-2" data-i18n="calculator-form-hours">Hours of Operation per Day</label>
+                                <input type="number" id="hours" class="calculator-input" min="1" max="24" value="8" required>
+                            </div>
+                            <div class="mb-6">
+                                <label for="electricity-cost" class="block text-gray-700 font-medium mb-2" data-i18n="calculator-form-cost">Electricity Cost ( ₦ per kWh )</label>
+                                <input type="number" id="electricity-cost" class="calculator-input" min="1" max="100" value="40" step="0.01" required>
+                            </div>
+                            <button type="submit" class="btn-primary text-white font-medium py-3 px-6 rounded-lg w-full">
+                                <span data-i18n="calculator-form-btn">Calculate Savings</span>
+                            </button>
+                        </form>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-6" data-i18n="calculator-results-title">Your Potential Savings</h3>
+                        <div id="results" class="hidden">
+                            <div class="result-card mb-6">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-700 font-medium" data-i18n="calculator-results-daily">Daily Energy Savings:</span>
+                                    <span class="text-blue-600 font-bold text-xl"><span id="daily-energy-savings">0</span> kWh</span>
+                                </div>
+                            </div>
+                            <div class="result-card mb-6">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-700 font-medium" data-i18n="calculator-results-cost">Daily Cost Savings:</span>
+                                    <span class="text-blue-600 font-bold text-xl">₦<span id="daily-cost-savings">0</span></span>
+                                </div>
+                            </div>
+                            <div class="result-card mb-6">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-700 font-medium" data-i18n="calculator-results-monthly">Monthly Savings:</span>
+                                    <span class="text-blue-600 font-bold text-xl">₦<span id="monthly-savings">0</span></span>
+                                </div>
+                            </div>
+                            <div class="result-card">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-700 font-medium" data-i18n="calculator-results-yearly">Annual Savings:</span>
+                                    <span class="text-blue-600 font-bold text-xl">₦<span id="yearly-savings">0</span></span>
+                                </div>
+                            </div>
+                            <div class="mt-8 p-4 bg-green-50 border border-green-200 rounded-lg">
+                                <p class="text-green-800 text-center font-medium" data-i18n="calculator-results-note">Based on a 40% reduction in energy consumption compared to traditional single-split systems.</p>
+                            </div>
+                        </div>
+                        <div id="results-placeholder" class="flex flex-col items-center justify-center h-full">
+                            <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/886f7dd798cf4ddbb3f76b42cfec06fd.png~tplv-a9rns2rl98-24:720:720.png?rcl=2025122512065599C8E7E3408B5B67EE19&rk3s=8e244e95&rrcfp=8a172a1a&x-expires=1767240415&x-signature=0eVwp8nTBEJH3N7Oc0XF86fH0ug%3D" alt="Energy Savings" class="w-3/4 mb-6">
+                            <p class="text-gray-600 text-center" data-i18n="calculator-placeholder">Fill in the form to see your potential savings</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="cases" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4" data-i18n="cases-title">Success Stories</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto" data-i18n="cases-subtitle">Discover how businesses and homeowners across West Africa are benefiting from JMideal Multi Split Systems.</p>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Case Study 1 -->
+                <div class="card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/3174396ed19e45078bb06c5fb4b302dc~tplv-a9rns2rl98-image.image?rcl=2025122512065599C8E7E3408B5B67EE19&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1769227788&x-signature=8kODE6MSs%2BahMU%2B4LFpxdYTCHYs%3D" alt="Luxury Residential Complex - Lagos" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                <i data-lucide="building" class="w-6 h-6 text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800" data-i18n="cases-case-1-title">Luxury Residential Complex</h3>
+                                <p class="text-gray-600 text-sm" data-i18n="cases-case-1-location">Lagos, Nigeria</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4" data-i18n="cases-case-1-description">A 20-unit luxury apartment complex in Lagos achieved 45% energy savings by installing our Inverter Quattro™ Multi Split Systems.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-600 font-bold" data-i18n="cases-case-1-savings">₦12.5M Annual Savings</span>
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                                <span data-i18n="cases-case-1-btn">Read More</span>
+                                <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Case Study 2 -->
+                <div class="card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/24ff414d0aab48c5b7c5b2d8f313c67d~tplv-a9rns2rl98-image.image?rcl=2025122512065599C8E7E3408B5B67EE19&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1769227774&x-signature=0LseV5Izfx57AUAmg0ajDh%2FdsLE%3D" alt="Corporate Office Building - Accra" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                <i data-lucide="briefcase" class="w-6 h-6 text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800" data-i18n="cases-case-2-title">Corporate Office Building</h3>
+                                <p class="text-gray-600 text-sm" data-i18n="cases-case-2-location">Accra, Ghana</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4" data-i18n="cases-case-2-description">A 5-story office building in Accra reduced its cooling costs by 52% while improving comfort for over 300 employees.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-600 font-bold" data-i18n="cases-case-2-savings">₦18.2M Annual Savings</span>
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                                <span data-i18n="cases-case-2-btn">Read More</span>
+                                <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Case Study 3 -->
+                <div class="card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/cc8214354d4146f0a58e39e91aa544dc.png~tplv-a9rns2rl98-24:720:720.png?rcl=2025122512065599C8E7E3408B5B67EE19&rk3s=8e244e95&rrcfp=8a172a1a&x-expires=1767240415&x-signature=CGiwKn0VilKpuR7FJPeXCLeCpME%3D" alt="Hospital - Abuja" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                <i data-lucide="hospital" class="w-6 h-6 text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800" data-i18n="cases-case-3-title">Specialist Hospital</h3>
+                                <p class="text-gray-600 text-sm" data-i18n="cases-case-3-location">Abuja, Nigeria</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4" data-i18n="cases-case-3-description">A 100-bed specialist hospital in Abuja improved temperature control and reduced energy costs by 48% with our high-capacity systems.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-600 font-bold" data-i18n="cases-case-3-savings">₦22.7M Annual Savings</span>
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                                <span data-i18n="cases-case-3-btn">Read More</span>
+                                <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#contact" class="btn-secondary text-white font-medium py-3 px-8 rounded-lg inline-block">
+                    <span data-i18n="cases-see-all">View All Projects</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4" data-i18n="contact-title">Get in Touch</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto" data-i18n="contact-subtitle">Ready to experience the benefits of JMideal Multi Split Systems? Contact us today for a consultation or quote.</p>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-8">
+                    <form class="bg-white p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6" data-i18n="contact-form-title">Send Us a Message</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="name" class="block text-gray-700 font-medium mb-2" data-i18n="contact-form-name">Full Name</label>
+                                <input type="text" id="name" class="calculator-input" required>
+                            </div>
+                            <div>
+                                <label for="company" class="block text-gray-700 font-medium mb-2" data-i18n="contact-form-company">Company (Optional)</label>
+                                <input type="text" id="company" class="calculator-input">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="email" class="block text-gray-700 font-medium mb-2" data-i18n="contact-form-email">Email Address</label>
+                                <input type="email" id="email" class="calculator-input" required>
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-gray-700 font-medium mb-2" data-i18n="contact-form-phone">Phone Number</label>
+                                <input type="tel" id="phone" class="calculator-input" required>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label for="country" class="block text-gray-700 font-medium mb-2" data-i18n="contact-form-country">Country</label>
+                            <select id="country" class="calculator-input" required>
+                                <option value="" data-i18n="contact-form-country-select">Select your country</option>
+                                <option value="ghana">Ghana</option>
+                                <option value="nigeria">Nigeria</option>
+                                <option value="ivory-coast">Ivory Coast</option>
+                                <option value="senegal">Senegal</option>
+                                <option value="ghana">Ghana</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 font-medium mb-2" data-i18n="contact-form-message">Your Message</label>
+                            <textarea id="message" rows="5" class="calculator-input" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary text-white font-medium py-3 px-6 rounded-lg w-full">
+                            <span data-i18n="contact-form-btn">Send Message</span>
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2 lg:pl-8">
+                    <div class="bg-white p-8 rounded-lg shadow-lg mb-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6" data-i18n="contact-info-title">Contact Information</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i data-lucide="map-pin" class="w-6 h-6 text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800" data-i18n="contact-info-headquarters">Headquarters</h4>
+                                    <p class="text-gray-600" data-i18n="contact-info-address">123 Accra Street, Victoria Island, Lagos, Nigeria</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i data-lucide="phone" class="w-6 h-6 text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800" data-i18n="contact-info-phone">Phone</h4>
+                                    <p class="text-gray-600">+234 1 234 5678</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i data-lucide="mail" class="w-6 h-6 text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800" data-i18n="contact-info-email">Email</h4>
+                                    <p class="text-gray-600">info@jmideal.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i data-lucide="clock" class="w-6 h-6 text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800" data-i18n="contact-info-hours">Business Hours</h4>
+                                    <p class="text-gray-600" data-i18n="contact-info-days">Monday - Friday: 8:00 AM - 6:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6" data-i18n="contact-dealer-title">Find a Dealer</h3>
+                        <p class="text-gray-600 mb-6" data-i18n="contact-dealer-description">Looking for a certified JMideal dealer near you? Enter your location to find the nearest dealer.</p>
+                        <div class="flex">
+                            <input type="text" placeholder="Enter your city or region" class="calculator-input rounded-r-none">
+                            <button class="btn-primary text-white font-medium py-3 px-6 rounded-l-none">
+                                <i data-lucide="search" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <a href="#" class="flex items-center mb-6">
+                        <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center mr-2">
+                            <span class="text-white font-bold text-xl">JM</span>
+                        </div>
+                        <span class="text-xl font-bold text-white">JMideal</span>
+                    </a>
+                    <p class="text-gray-400 mb-6" data-i18n="footer-description">Your trusted OEM partner for Midea Multi Split Systems in West Africa, providing energy-efficient and reliable air conditioning solutions.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i data-lucide="facebook" class="w-6 h-6"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i data-lucide="twitter" class="w-6 h-6"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i data-lucide="linkedin" class="w-6 h-6"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i data-lucide="instagram" class="w-6 h-6"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-6" data-i18n="footer-quick-links">Quick Links</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer-link-home">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer-link-about">About Us</a></li>
+                        <li><a href="#products" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer-link-products">Products</a></li>
+                        <li><a href="#benefits" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer-link-benefits">Benefits</a></li>
+                        <li><a href="#calculator" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer-link-calculator">Savings Calculator</a></li>
+                        <li><a href="#cases" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer-link-cases">Projects</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer-link-contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-6" data-i18n="footer-products">Our Products</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer-product-1">Inverter Quattro™ Multi Split</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer-product-2">Compact Multi Split System</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer-product-3">High-Capacity Multi Split</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer-product-4">Commercial Solutions</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer-product-5">Accessories &amp; Parts</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-6" data-i18n="footer-support">Support</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer-support-1">Technical Support</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer-support-2">Installation Guide</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer-support-3">Maintenance Tips</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer-support-4">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer-support-5">Warranty Information</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 mb-4 md:mb-0" data-i18n="footer-copyright">© 2025 JMideal. All rights reserved.</p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer-terms">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer-privacy">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer-cookies">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300">
+        <i data-lucide="arrow-up" class="w-6 h-6"></i>
+    </button>
+    
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        // Language translations
+        const translations = {
+            en: {
+                'nav-home': 'Home',
+                'nav-about': 'About Us',
+                'nav-products': 'Products',
+                'nav-benefits': 'Benefits',
+                'nav-calculator': 'Savings Calculator',
+                'nav-cases': 'Projects',
+                'nav-contact': 'Contact',
+                'hero-title': 'JMideal Multi Split System',
+                'hero-subtitle': 'The Right Air Solution for Multiple Spaces',
+                'hero-description': 'Experience the perfect blend of comfort, efficiency, and style with our innovative multi-split air conditioning systems, designed specifically for West African homes and businesses.',
+                'hero-btn-products': 'Explore Products',
+                'hero-btn-contact': 'Contact Us',
+                'about-title': 'About JMideal',
+                'about-subtitle': 'Your Trusted OEM Partner for Midea Multi Split Systems in West Africa',
+                'about-description-1': 'JMideal is proud to be the official OEM partner for Midea, one of the world\'s leading air conditioning manufacturers. We bring cutting-edge technology and energy-efficient solutions to homes and businesses across Ghana, Nigeria, and the entire West African region.',
+                'about-description-2': 'Our mission is to provide superior comfort while reducing energy consumption and environmental impact. With our deep understanding of West African climate conditions and building requirements, we offer tailored solutions that meet the unique needs of our customers.',
+                'about-feature-1': 'Energy Efficient',
+                'about-feature-2': 'Locally Adapted',
+                'about-feature-3': 'Durable',
+                'about-feature-4': 'Professional Support',
+                'products-title': 'Our Multi Split Systems',
+                'products-subtitle': 'Discover our range of innovative multi-split air conditioning systems, designed to provide optimal comfort and efficiency for any space.',
+                'products-best-seller': 'Best Seller',
+                'products-new': 'New',
+                'products-product-1-title': 'Inverter Quattro™ Multi Split System',
+                'products-product-1-description': 'Our flagship model with advanced Inverter Quattro™ technology, offering up to 40% power savings and exceptional comfort.',
+                'products-product-1-rating': '(120 reviews)',
+                'products-product-1-price': 'From ₦1,200,000',
+                'products-product-1-btn': 'Get Quote',
+                'products-product-2-title': 'Compact Multi Split System',
+                'products-product-2-description': 'Perfect for smaller spaces, our compact model delivers powerful performance in a sleek, space-saving design.',
+                'products-product-2-rating': '(85 reviews)',
+                'products-product-2-price': 'From ₦850,000',
+                'products-product-2-btn': 'Get Quote',
+                'products-product-3-title': 'High-Capacity Multi Split System',
+                'products-product-3-description': 'Designed for larger commercial spaces, with up to 150% indoor-outdoor capacity ratio and exceptional energy efficiency.',
+                'products-product-3-rating': '(42 reviews)',
+                'products-product-3-price': 'From ₦1,800,000',
+                'products-product-3-btn': 'Get Quote',
+                'products-see-all': 'See All Products',
+                'benefits-title': 'Why Choose JMideal Multi Split Systems',
+                'benefits-subtitle': 'Our systems offer numerous advantages over traditional single-split units, providing superior comfort and efficiency for your home or business.',
+                'benefits-benefit-1-title': '55% Electricity Cost Reduction',
+                'benefits-benefit-1-description': 'Our advanced Inverter Quattro™ technology can reduce energy consumption by up to 55%, significantly lowering your electricity bills.',
+                'benefits-benefit-2-title': 'Up to 150% High Combination Rate',
+                'benefits-benefit-2-description': 'One outdoor unit can connect to multiple indoor units, providing flexible installation options and optimal capacity utilization.',
+                'benefits-benefit-3-title': 'Wide Operation Range',
+                'benefits-benefit-3-description': 'Our systems operate efficiently even in extreme temperatures, ensuring comfort all year round in West Africa\'s challenging climate.',
+                'benefits-benefit-4-title': 'Active Power Factor Correction',
+                'benefits-benefit-4-description': 'Our systems utilize up to 88-99% of the input power supply effectively, maximizing energy efficiency and reducing waste.',
+                'benefits-benefit-5-title': 'Cost-Effective Installation',
+                'benefits-benefit-5-description': 'Fewer outdoor units mean reduced installation costs, less space required, and a cleaner, more aesthetically pleasing appearance.',
+                'benefits-benefit-6-title': 'Individual Temperature Control',
+                'benefits-benefit-6-description': 'Each indoor unit can be controlled independently, allowing personalized comfort settings for different rooms or zones.',
+                'benefits-comparison-title': 'Multi Split vs. Single Split: The Clear Choice',
+                'benefits-comparison-description': 'When comparing multi-split systems to traditional single-split units, the advantages are clear. Our multi-split systems offer superior efficiency, flexibility, and cost savings.',
+                'benefits-comparison-point-1-title': '40% Energy Savings',
+                'benefits-comparison-point-1-description': 'Significant reduction in electricity consumption compared to multiple single-split units.',
+                'benefits-comparison-point-2-title': 'Reduced Installation Costs',
+                'benefits-comparison-point-2-description': 'Fewer outdoor units mean lower installation costs and less space required.',
+                'benefits-comparison-point-3-title': 'Enhanced Flexibility',
+                'benefits-comparison-point-3-description': 'Mix and match different indoor unit types to suit various room requirements and aesthetics.',
+                'calculator-title': 'Energy Savings Calculator',
+                'calculator-subtitle': 'Find out how much you could save by switching to a JMideal Multi Split System. Enter your details below to calculate your potential savings.',
+                'calculator-form-title': 'Your Information',
+                'calculator-form-rooms': 'Number of Rooms',
+                'calculator-form-hours': 'Hours of Operation per Day',
+                'calculator-form-cost': 'Electricity Cost ( ₦ per kWh )',
+                'calculator-form-btn': 'Calculate Savings',
+                'calculator-results-title': 'Your Potential Savings',
+                'calculator-results-daily': 'Daily Energy Savings:',
+                'calculator-results-cost': 'Daily Cost Savings:',
+                'calculator-results-monthly': 'Monthly Savings:',
+                'calculator-results-yearly': 'Annual Savings:',
+                'calculator-results-note': 'Based on a 40% reduction in energy consumption compared to traditional single-split systems.',
+                'calculator-placeholder': 'Fill in the form to see your potential savings',
+                'cases-title': 'Success Stories',
+                'cases-subtitle': 'Discover how businesses and homeowners across West Africa are benefiting from JMideal Multi Split Systems.',
+                'cases-case-1-title': 'Luxury Residential Complex',
+                'cases-case-1-location': 'Lagos, Nigeria',
+                'cases-case-1-description': 'A 20-unit luxury apartment complex in Lagos achieved 45% energy savings by installing our Inverter Quattro™ Multi Split Systems.',
+                'cases-case-1-savings': '₦12.5M Annual Savings',
+                'cases-case-1-btn': 'Read More',
+                'cases-case-2-title': 'Corporate Office Building',
+                'cases-case-2-location': 'Accra, Ghana',
+                'cases-case-2-description': 'A 5-story office building in Accra reduced its cooling costs by 52% while improving comfort for over 300 employees.',
+                'cases-case-2-savings': '₦18.2M Annual Savings',
+                'cases-case-2-btn': 'Read More',
+                'cases-case-3-title': 'Specialist Hospital',
+                'cases-case-3-location': 'Abuja, Nigeria',
+                'cases-case-3-description': 'A 100-bed specialist hospital in Abuja improved temperature control and reduced energy costs by 48% with our high-capacity systems.',
+                'cases-case-3-savings': '₦22.7M Annual Savings',
+                'cases-case-3-btn': 'Read More',
+                'cases-see-all': 'View All Projects',
+                'contact-title': 'Get in Touch',
+                'contact-subtitle': 'Ready to experience the benefits of JMideal Multi Split Systems? Contact us today for a consultation or quote.',
+                'contact-form-title': 'Send Us a Message',
+                'contact-form-name': 'Full Name',
+                'contact-form-company': 'Company (Optional)',
+                'contact-form-email': 'Email Address',
+                'contact-form-phone': 'Phone Number',
+                'contact-form-country': 'Country',
+                'contact-form-country-select': 'Select your country',
+                'contact-form-message': 'Your Message',
+                'contact-form-btn': 'Send Message',
+                'contact-info-title': 'Contact Information',
+                'contact-info-headquarters': 'Headquarters',
+                'contact-info-address': '123 Accra Street, Victoria Island, Lagos, Nigeria',
+                'contact-info-phone': 'Phone',
+                'contact-info-email': 'Email',
+                'contact-info-hours': 'Business Hours',
+                'contact-info-days': 'Monday - Friday: 8:00 AM - 6:00 PM',
+                'contact-dealer-title': 'Find a Dealer',
+                'contact-dealer-description': 'Looking for a certified JMideal dealer near you? Enter your location to find the nearest dealer.',
+                'footer-description': 'Your trusted OEM partner for Midea Multi Split Systems in West Africa, providing energy-efficient and reliable air conditioning solutions.',
+                'footer-quick-links': 'Quick Links',
+                'footer-link-home': 'Home',
+                'footer-link-about': 'About Us',
+                'footer-link-products': 'Products',
+                'footer-link-benefits': 'Benefits',
+                'footer-link-calculator': 'Savings Calculator',
+                'footer-link-cases': 'Projects',
+                'footer-link-contact': 'Contact',
+                'footer-products': 'Our Products',
+                'footer-product-1': 'Inverter Quattro™ Multi Split',
+                'footer-product-2': 'Compact Multi Split System',
+                'footer-product-3': 'High-Capacity Multi Split',
+                'footer-product-4': 'Commercial Solutions',
+                'footer-product-5': 'Accessories & Parts',
+                'footer-support': 'Support',
+                'footer-support-1': 'Technical Support',
+                'footer-support-2': 'Installation Guide',
+                'footer-support-3': 'Maintenance Tips',
+                'footer-support-4': 'FAQs',
+                'footer-support-5': 'Warranty Information',
+                'footer-copyright': '© 2025 JMideal. All rights reserved.',
+                'footer-terms': 'Terms of Service',
+                'footer-privacy': 'Privacy Policy',
+                'footer-cookies': 'Cookie Policy'
+            },
+            fr: {
+                'nav-home': 'Accueil',
+                'nav-about': 'À propos de nous',
+                'nav-products': 'Produits',
+                'nav-benefits': 'Avantages',
+                'nav-calculator': 'Calculateur d\'économies',
+                'nav-cases': 'Projets',
+                'nav-contact': 'Contact',
+                'hero-title': 'Système Multi-Split JMideal',
+                'hero-subtitle': 'La bonne solution climatique pour plusieurs espaces',
+                'hero-description': 'Découvrez le parfait mélange de confort, d\'efficacité et de style avec nos systèmes de climatisation multi-split innovants, conçus spécialement pour les maisons et les entreprises d\'Afrique de l\'Ouest.',
+                'hero-btn-products': 'Découvrir les produits',
+                'hero-btn-contact': 'Contactez-nous',
+                'about-title': 'À propos de JMideal',
+                'about-subtitle': 'Votre partenaire OEM de confiance pour les systèmes Multi-Split Midea en Afrique de l\'Ouest',
+                'about-description-1': 'JMideal est fier d\'être le partenaire OEM officiel de Midea, l\'un des plus grands fabricants de climatisation au monde. Nous apportons des technologies de pointe et des solutions énergétiques efficaces aux maisons et aux entreprises du Ghana, du Nigeria et de toute la région de l\'Afrique de l\'Ouest.',
+                'about-description-2': 'Notre mission est de fournir un confort supérieur tout en réduisant la consommation d\'énergie et l\'impact environnemental. Grâce à notre profonde compréhension des conditions climatiques et des exigences de construction en Afrique de l\'Ouest, nous proposons des solutions adaptées qui répondent aux besoins uniques de nos clients.',
+                'about-feature-1': 'Économe en énergie',
+                'about-feature-2': 'Adapté localement',
+                'about-feature-3': 'Durable',
+                'about-feature-4': 'Support professionnel',
+                'products-title': 'Nos systèmes Multi-Split',
+                'products-subtitle': 'Découvrez notre gamme de systèmes de climatisation multi-split innovants, conçus pour offrir un confort et une efficacité optimaux pour n\'importe quel espace.',
+                'products-best-seller': 'Meilleur vendeur',
+                'products-new': 'Nouveau',
+                'products-product-1-title': 'Système Multi-Split Inverter Quattro™',
+                'products-product-1-description': 'Notre modèle phare avec la technologie avancée Inverter Quattro™, offrant jusqu\'à 40% d\'économie d\'énergie et un confort exceptionnel.',
+                'products-product-1-rating': '(120 avis)',
+                'products-product-1-price': 'À partir de ₦1 200 000',
+                'products-product-1-btn': 'Obtenir un devis',
+                'products-product-2-title': 'Système Multi-Split Compact',
+                'products-product-2-description': 'Parfait pour les petits espaces, notre modèle compact offre des performances puissantes dans un design élégant et espace-saving.',
+                'products-product-2-rating': '(85 avis)',
+                'products-product-2-price': 'À partir de ₦850 000',
+                'products-product-2-btn': 'Obtenir un devis',
+                'products-product-3-title': 'Système Multi-Split à Grande Capacité',
+                'products-product-3-description': 'Conçu pour les grands espaces commerciaux, avec un ratio de capacité intérieure-extérieure allant jusqu\'à 150% et une efficacité énergétique exceptionnelle.',
+                'products-product-3-rating': '(42 avis)',
+                'products-product-3-price': 'À partir de ₦1 800 000',
+                'products-product-3-btn': 'Obtenir un devis',
+                'products-see-all': 'Voir tous les produits',
+                'benefits-title': 'Pourquoi choisir les systèmes Multi-Split JMideal',
+                'benefits-subtitle': 'Nos systèmes offrent de nombreux avantages par rapport aux unités mono-split traditionnelles, offrant un confort et une efficacité supérieurs pour votre maison ou votre entreprise.',
+                'benefits-benefit-1-title': 'Réduction de 55% des coûts d\'électricité',
+                'benefits-benefit-1-description': 'Notre technologie avancée Inverter Quattro™ peut réduire la consommation d\'énergie jusqu\'à 55%, diminuant considérablement vos factures d\'électricité.',
+                'benefits-benefit-2-title': 'Ratio de combinaison élevé jusqu\'à 150%',
+                'benefits-benefit-2-description': 'Une unité extérieure peut être connectée à plusieurs unités intérieures, offrant des options d\'installation flexibles et une utilisation optimale de la capacité.',
+                'benefits-benefit-3-title': 'Large plage de fonctionnement',
+                'benefits-benefit-3-description': 'Nos systèmes fonctionnent efficacement même dans des températures extrêmes, garantissant un confort toute l\'année dans le climat exigeant de l\'Afrique de l\'Ouest.',
+                'benefits-benefit-4-title': 'Correction active du facteur de puissance',
+                'benefits-benefit-4-description': 'Nos systèmes utilisent efficacement jusqu\'à 88-99% de l\'alimentation électrique entrante, maximisant l\'efficacité énergétique et réduisant les déchets.',
+                'benefits-benefit-5-title': 'Installation économique',
+                'benefits-benefit-5-description': 'Moins d\'unités extérieures signifient des coûts d\'installation réduits, moins d\'espace requis et une apparence plus propre et plus esthétique.',
+                'benefits-benefit-6-title': 'Contrôle de température individuel',
+                'benefits-benefit-6-description': 'Chaque unité intérieure peut être contrôlée indépendamment, permettant des réglages de confort personnalisés pour différentes pièces ou zones.',
+                'benefits-comparison-title': 'Multi-Split vs. Mono-Split : Le choix évident',
+                'benefits-comparison-description': 'Lorsque l\'on compare les systèmes multi-split aux unités mono-split traditionnelles, les avantages sont clairs. Nos systèmes multi-split offrent une efficacité, une flexibilité et des économies supérieures.',
+                'benefits-comparison-point-1-title': '40% d\'économie d\'énergie',
+                'benefits-comparison-point-1-description': 'Réduction significative de la consommation d\'électricité par rapport à plusieurs unités mono-split.',
+                'benefits-comparison-point-2-title': 'Coûts d\'installation réduits',
+                'benefits-comparison-point-2-description': 'Moins d\'unités extérieures signifient des coûts d\'installation inférieurs et moins d\'espace requis.',
+                'benefits-comparison-point-3-title': 'Flexibilité améliorée',
+                'benefits-comparison-point-3-description': 'Mélangez et associez différents types d\'unités intérieures pour répondre aux différents besoins et esthétiques des pièces.',
+                'calculator-title': 'Calculateur d\'économies d\'énergie',
+                'calculator-subtitle': 'Découvrez combien vous pourriez économiser en passant à un système Multi-Split JMideal. Saisissez vos détails ci-dessous pour calculer vos économies potentielles.',
+                'calculator-form-title': 'Vos informations',
+                'calculator-form-rooms': 'Nombre de pièces',
+                'calculator-form-hours': 'Heures de fonctionnement par jour',
+                'calculator-form-cost': 'Coût de l\'électricité ( ₦ par kWh )',
+                'calculator-form-btn': 'Calculer les économies',
+                'calculator-results-title': 'Vos économies potentielles',
+                'calculator-results-daily': 'Économies d\'énergie quotidiennes :',
+                'calculator-results-cost': 'Économies de coûts quotidiennes :',
+                'calculator-results-monthly': 'Économies mensuelles :',
+                'calculator-results-yearly': 'Économies annuelles :',
+                'calculator-results-note': 'Basé sur une réduction de 40% de la consommation d\'énergie par rapport aux systèmes mono-split traditionnels.',
+                'calculator-placeholder': 'Remplissez le formulaire pour voir vos économies potentielles',
+                'cases-title': 'Récits de succès',
+                'cases-subtitle': 'Découvrez comment des entreprises et des propriétaires de maisons à travers l\'Afrique de l\'Ouest bénéficient des systèmes Multi-Split JMideal.',
+                'cases-case-1-title': 'Complexe résidentiel de luxe',
+                'cases-case-1-location': 'Lagos, Nigeria',
+                'cases-case-1-description': 'Un complexe d\'appartements de luxe de 20 unités à Lagos a réalisé des économies d\'énergie de 45% en installant nos systèmes Multi-Split Inverter Quattro™.',
+                'cases-case-1-savings': '₦12,5M d\'économies annuelles',
+                'cases-case-1-btn': 'Lire la suite',
+                'cases-case-2-title': 'Bâtiment de bureaux corporatifs',
+                'cases-case-2-location': 'Accra, Ghana',
+                'cases-case-2-description': 'Un immeuble de bureaux de 5 étages à Accra a réduit ses coûts de climatisation de 52% tout en améliorant le confort pour plus de 300 employés.',
+                'cases-case-2-savings': '₦18,2M d\'économies annuelles',
+                'cases-case-2-btn': 'Lire la suite',
+                'cases-case-3-title': 'Hôpital spécialisé',
+                'cases-case-3-location': 'Abuja, Nigeria',
+                'cases-case-3-description': 'Un hôpital spécialisé de 100 lits à Abuja a amélioré le contrôle de la température et réduit ses coûts d\'énergie de 48% avec nos systèmes à grande capacité.',
+                'cases-case-3-savings': '₦22,7M d\'économies annuelles',
+                'cases-case-3-btn': 'Lire la suite',
+                'cases-see-all': 'Voir tous les projets',
+                'contact-title': 'Contactez-nous',
+                'contact-subtitle': 'Prêt à profiter des avantages des systèmes Multi-Split JMideal ? Contactez-nous aujourd\'hui pour une consultation ou un devis.',
+                'contact-form-title': 'Envoyez-nous un message',
+                'contact-form-name': 'Nom complet',
+                'contact-form-company': 'Entreprise (Facultatif)',
+                'contact-form-email': 'Adresse e-mail',
+                'contact-form-phone': 'Numéro de téléphone',
+                'contact-form-country': 'Pays',
+                'contact-form-country-select': 'Sélectionnez votre pays',
+                'contact-form-message': 'Votre message',
+                'contact-form-btn': 'Envoyer le message',
+                'contact-info-title': 'Informations de contact',
+                'contact-info-headquarters': 'Siège social',
+                'contact-info-address': '123 rue d\'Accra, Victoria Island, Lagos, Nigeria',
+                'contact-info-phone': 'Téléphone',
+                'contact-info-email': 'Email',
+                'contact-info-hours': 'Heures d\'ouverture',
+                'contact-info-days': 'Lundi - Vendredi : 8:00 - 18:00',
+                'contact-dealer-title': 'Trouver un revendeur',
+                'contact-dealer-description': 'Vous cherchez un revendeur JMideal certifié près de chez vous ? Entrez votre emplacement pour trouver le revendeur le plus proche.',
+                'footer-description': 'Votre partenaire OEM de confiance pour les systèmes Multi-Split Midea en Afrique de l\'Ouest, fournissant des solutions de climatisation efficaces sur le plan énergétique et fiables.',
+                'footer-quick-links': 'Liens rapides',
+                'footer-link-home': 'Accueil',
+                'footer-link-about': 'À propos de nous',
+                'footer-link-products': 'Produits',
+                'footer-link-benefits': 'Avantages',
+                'footer-link-calculator': 'Calculateur d\'économies',
+                'footer-link-cases': 'Projets',
+                'footer-link-contact': 'Contact',
+                'footer-products': 'Nos produits',
+                'footer-product-1': 'Multi-Split Inverter Quattro™',
+                'footer-product-2': 'Système Multi-Split Compact',
+                'footer-product-3': 'Multi-Split à Grande Capacité',
+                'footer-product-4': 'Solutions commerciales',
+                'footer-product-5': 'Accessoires et pièces',
+                'footer-support': 'Support',
+                'footer-support-1': 'Support technique',
+                'footer-support-2': 'Guide d\'installation',
+                'footer-support-3': 'Conseils d\'entretien',
+                'footer-support-4': 'FAQ',
+                'footer-support-5': 'Informations sur la garantie',
+                'footer-copyright': '© 2025 JMideal. Tous droits réservés.',
+                'footer-terms': 'Conditions d\'utilisation',
+                'footer-privacy': 'Politique de confidentialité',
+                'footer-cookies': 'Politique de cookies'
+            }
+        };
+        
+        // Function to switch language
+        function switchLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+            document.documentElement.lang = lang;
+            document.getElementById('current-language').textContent = lang === 'en' ? 'English' : 'Français';
+            localStorage.setItem('preferredLanguage', lang);
+        }
+        
+        // Initialize language
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+            switchLanguage(savedLang);
+            
+            // Language switcher event listeners
+            document.querySelectorAll('.language-option').forEach(option => {
+                option.addEventListener('click', () => {
+                    const lang = option.getAttribute('data-lang');
+                    switchLanguage(lang);
+                });
+            });
+            
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const overlay = document.querySelector('.overlay');
+            
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            closeMobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+            
+            overlay.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+            
+            // Mobile nav links
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+            
+            // Active nav link highlighting
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            window.addEventListener('scroll', () => {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= sectionTop - 200) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active-nav');
+                    if (link.getAttribute('href').substring(1) === current) {
+                        link.classList.add('active-nav');
+                    }
+                });
+            });
+            
+            // Back to top button
+            const backToTopButton = document.getElementById('back-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.remove('opacity-0', 'invisible');
+                    backToTopButton.classList.add('opacity-100', 'visible');
+                } else {
+                    backToTopButton.classList.remove('opacity-100', 'visible');
+                    backToTopButton.classList.add('opacity-0', 'invisible');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Savings calculator
+            const calculatorForm = document.getElementById('savings-calculator');
+            const results = document.getElementById('results');
+            const resultsPlaceholder = document.getElementById('results-placeholder');
+            
+            calculatorForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const rooms = parseInt(document.getElementById('rooms').value);
+                const hours = parseInt(document.getElementById('hours').value);
+                const electricityCost = parseFloat(document.getElementById('electricity-cost').value);
+                
+                // Calculate savings (based on 40% energy reduction)
+                const singleSplitConsumption = rooms * 1.2 * hours; // kWh
+                const multiSplitConsumption = singleSplitConsumption * 0.6; // 40% savings
+                const dailyEnergySavings = singleSplitConsumption - multiSplitConsumption;
+                const dailyCostSavings = dailyEnergySavings * electricityCost;
+                const monthlySavings = dailyCostSavings * 30;
+                const yearlySavings = monthlySavings * 12;
+                
+                // Update results
+                document.getElementById('daily-energy-savings').textContent = dailyEnergySavings.toFixed(2);
+                document.getElementById('daily-cost-savings').textContent = dailyCostSavings.toFixed(2);
+                document.getElementById('monthly-savings').textContent = monthlySavings.toFixed(2);
+                document.getElementById('yearly-savings').textContent = yearlySavings.toFixed(2);
+                
+                // Show results
+                results.classList.remove('hidden');
+                resultsPlaceholder.classList.add('hidden');
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Animate elements on scroll
+            const animateOnScroll = () => {
+                const elements = document.querySelectorAll('.feature-card, .card, .result-card');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementPosition < windowHeight - 100) {
+                        element.classList.add('animate__animated', 'animate__fadeInUp');
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // Run once on page load
+        });
+    </script>
+</body>
+</html>
